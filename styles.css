@@ -1,0 +1,63 @@
+:root{
+  --bg:#0b0e14; --panel:#12161f; --line:#232a38; --text:#e8eaf0; --muted:#9aa3b2;
+  --green:#3ddc84; --amber:#f5a623; --red:#ff5c5c; --purple:#a78bfa; --btn:#1d2534;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+.top{display:flex;flex-wrap:wrap;gap:16px;align-items:center;padding:20px 22px;border-bottom:1px solid var(--line)}
+.mark{width:56px;height:56px;flex:none}
+h1{margin:0;font-size:28px;letter-spacing:.3px}
+.sub{margin:2px 0 0;color:var(--muted);font-size:14px}
+.goal{margin-left:auto;text-align:right}
+.goal-label{display:block;color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:.08em}
+.goal-num{display:block;font-size:32px;font-weight:800;color:var(--green)}
+.goal-bar{display:block;width:220px;max-width:60vw;height:8px;background:var(--btn);border-radius:99px;overflow:hidden;margin-top:4px}
+.goal-bar span{display:block;height:100%;width:0%;background:linear-gradient(90deg,var(--purple),var(--green))}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;padding:16px;max-width:1200px;margin:0 auto}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px 18px}
+.panel h2{margin:0 0 6px;font-size:19px}
+.hint{color:var(--muted);font-size:13px;margin:4px 0 12px}
+.src{color:var(--muted);font-size:12px;margin:10px 0 0;word-break:break-word}
+.muted{color:var(--muted)}
+.pill{font-size:11px;font-weight:700;padding:2px 8px;border-radius:99px;background:var(--btn);color:var(--muted);vertical-align:middle;text-transform:uppercase;letter-spacing:.06em}
+.pill.live{background:rgba(61,220,132,.15);color:var(--green)}
+.pill.cached{background:rgba(245,166,35,.15);color:var(--amber)}
+.live-tag,.cached-tag{font-size:11px;font-weight:700;padding:1px 7px;border-radius:99px;text-transform:uppercase}
+.live-tag{background:rgba(61,220,132,.15);color:var(--green)}
+.cached-tag{background:rgba(245,166,35,.15);color:var(--amber)}
+.controls{display:flex;gap:8px;margin-bottom:10px}
+input,select,button{font:inherit;color:var(--text);background:var(--btn);border:1px solid var(--line);border-radius:9px;padding:8px 10px}
+input:focus,select:focus,button:focus{outline:2px solid var(--purple);outline-offset:1px}
+#boardSearch{flex:1}
+button{cursor:pointer;background:#2a3350}
+button:hover{background:#35406a}
+ul{list-style:none;margin:0;padding:0}
+.board li,.mints li,.earn li{border-top:1px solid var(--line);padding:10px 2px}
+.board a{color:var(--text);font-weight:650;text-decoration:none}
+.board a:hover{color:var(--purple);text-decoration:underline}
+.meta{color:var(--muted);font-size:13px}
+.pot{color:var(--green);font-weight:700}
+.warn{color:var(--amber);font-size:13px}
+.risk{color:var(--red);font-size:13px;font-weight:650}
+.addr{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12px;word-break:break-all;color:var(--muted)}
+.featured{border:1px solid var(--purple);border-radius:12px;padding:12px;margin-bottom:6px;background:rgba(167,139,250,.07)}
+.featured h3{margin:0 0 4px;font-size:17px}
+.big{font-size:26px;font-weight:800}
+#earnForm{display:grid;grid-template-columns:1fr 110px 130px 130px auto;gap:8px;margin-bottom:8px}
+.earn li{display:flex;gap:8px;align-items:baseline;flex-wrap:wrap}
+.earn .del{margin-left:auto;background:none;border:none;color:var(--red);padding:2px 6px}
+.totals{font-weight:700;margin:10px 0 0}
+.btn{display:inline-block;background:#2a3350;color:var(--text);text-decoration:none;font-weight:650;padding:10px 14px;border-radius:10px;border:1px solid var(--line)}
+.btn:hover{background:#35406a}
+.check li{border-top:1px solid var(--line);padding:9px 2px}
+.check label{display:flex;gap:10px;cursor:pointer;align-items:baseline}
+.check input{accent-color:var(--green);width:18px;height:18px}
+.check li.done span{color:var(--muted);text-decoration:line-through}
+#checkReset{margin-top:10px}
+footer{max-width:1200px;margin:0 auto;padding:8px 22px 28px;color:var(--muted);font-size:13px}
+@media (max-width:900px){
+  .grid{grid-template-columns:1fr}
+  #earnForm{grid-template-columns:1fr 1fr}
+  .goal{margin-left:0;text-align:left}
+  h1{font-size:24px}
+}
