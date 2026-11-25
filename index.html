@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bounty Hunter HQ — Kiroween 2026</title>
+<meta name="description" content="One dashboard stitching make.fun bounties, BSC free mints, and Telegram alerts for the zero-capital hunter.">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="top">
+  <svg class="mark" viewBox="0 0 64 64" aria-hidden="true"><path d="M32 6c-4 6-12 8-14 16-2 9 3 14 3 22 0 9 5 14 11 14s11-5 11-14c0-8 5-13 3-22-2-8-10-10-14-16z" fill="#f5a623"/><circle cx="25" cy="28" r="3" fill="#0b0e14"/><circle cx="39" cy="28" r="3" fill="#0b0e14"/><path d="M26 38q6 5 12 0" stroke="#0b0e14" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M32 6q2-4 6-5" stroke="#3ddc84" stroke-width="3" fill="none" stroke-linecap="round"/></svg>
+  <div>
+    <h1>Bounty Hunter HQ</h1>
+    <p class="sub">Frankenstein &middot; Kiroween 2026 &middot; make.fun + BSC free mints + Telegram, stitched into one dashboard</p>
+  </div>
+  <div class="goal" id="goalBox">
+    <span class="goal-label">Earned toward $70 goal</span>
+    <span class="goal-num" id="goalNum">$0.00</span>
+    <span class="goal-bar"><span id="goalFill"></span></span>
+  </div>
+</header>
+
+<main class="grid">
+  <section class="panel" id="boardPanel">
+    <h2>🎯 Bounty Board <span class="pill" id="boardPill">loading…</span></h2>
+    <p class="hint">Open zero-capital bounties from make.fun, soonest deadline first. “Open” here means the deadline has not passed — always verify on make.fun before entering.</p>
+    <div class="controls">
+      <input id="boardSearch" type="search" placeholder="Filter by name or category…" aria-label="Filter bounties">
+      <select id="boardSort" aria-label="Sort bounties">
+        <option value="deadline">Soonest deadline</option>
+        <option value="pot">Biggest pot</option>
+      </select>
+    </div>
+    <ul class="board" id="boardList"><li class="muted">Loading the board…</li></ul>
+    <p class="src" id="boardSrc"></p>
+  </section>
+
+  <section class="panel" id="radarPanel">
+    <h2>👻 Free-Mint Radar <span class="pill" id="radarPill">cached</span></h2>
+    <p class="hint">Verified free mints on BSC — gas only, no purchase. Counts are recorded snapshots unless marked LIVE.</p>
+    <div id="featuredMint"></div>
+    <ul class="mints" id="mintList"><li class="muted">Loading mints…</li></ul>
+    <p class="src" id="radarSrc"></p>
+  </section>
+
+  <section class="panel" id="earnPanel">
+    <h2>💰 Earnings Tracker</h2>
+    <p class="hint">Log every submission. Only <b>won</b> payouts count toward the $70 goal — placed is not paid.</p>
+    <form id="earnForm">
+      <input id="earnName" type="text" placeholder="Entry name, e.g. news-image 25 Nov" required maxlength="80">
+      <input id="earnPot" type="number" placeholder="Pot ($)" min="0" step="0.01">
+      <select id="earnStatus">
+        <option value="submitted">submitted</option>
+        <option value="placed">placed</option>
+        <option value="won">won</option>
+      </select>
+      <input id="earnPayout" type="number" placeholder="Payout received ($)" min="0" step="0.01">
+      <button type="submit">Add entry</button>
+    </form>
+    <ul class="earn" id="earnList"></ul>
+    <p class="totals" id="earnTotals"></p>
+  </section>
+
+  <section class="panel" id="tgPanel">
+    <h2>📡 Telegram Alerts</h2>
+    <p>The hunter's alert bot sends a message whenever a new free airdrop or free mint is verified, and answers questions about bounties and mints.</p>
+    <a class="btn" href="https://t.me/AirdropHunterAIrez_bot" target="_blank" rel="noopener">Open @AirdropHunterAIrez_bot ↗</a>
+    <p class="hint">Alerts are free. Minting is never automatic — every mint waits for your word.</p>
+  </section>
+
+  <section class="panel" id="checkPanel">
+    <h2>☑️ Daily Hunter Checklist</h2>
+    <ul class="check" id="checkList"></ul>
+    <button id="checkReset" type="button">Reset for tomorrow</button>
+  </section>
+</main>
+
+<footer>
+  <p>Built with Kiro (specs, steering, hooks) for Kiroween 2026 — Frankenstein category.
+  Data: make.fun public API + BSC JSON-RPC + the hunter's own verified records.
+  Every number is labelled <span class="live-tag">LIVE</span> or <span class="cached-tag">CACHED</span> with its time. Nothing here is financial advice, and no win is promised.</p>
+</footer>
+<script src="app.js"></script>
+</body>
+</html>
