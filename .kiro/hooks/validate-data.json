@@ -1,0 +1,1 @@
+{"description":"Validate the JSON data files whenever one is saved, so a broken snapshot never ships.","name":"validate-data","then":{"command":"python3 -m json.tool data/board-snapshot.json > /dev/null && python3 -m json.tool data/mints.json > /dev/null && echo DATA-OK","type":"command"},"version":"1","when":{"filters":[{"pattern":"data/*.json"}],"type":"fileEdited"}}
